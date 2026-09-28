@@ -232,6 +232,19 @@ button {
   background: linear-gradient(90deg, rgb(11 23 19 / 88%) 0%, rgb(13 29 24 / 74%) 43%, rgb(13 27 23 / 37%) 100%), linear-gradient(0deg, rgb(11 23 19 / 45%), transparent 48%);
 }
 
+.hero-security-art {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: max(48px, calc((100vw - var(--page-width)) / 2));
+  width: min(42vw, 500px);
+  height: auto;
+  transform: translateY(-50%);
+  opacity: 0.34;
+  filter: invert(88%) sepia(31%) saturate(651%) hue-rotate(25deg) brightness(108%) contrast(96%);
+  pointer-events: none;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -886,6 +899,15 @@ button {
 
   .hero-shade {
     background: linear-gradient(90deg, rgb(11 23 19 / 87%), rgb(13 29 24 / 61%)), linear-gradient(0deg, rgb(11 23 19 / 44%), transparent 55%);
+  }
+
+  .hero-security-art {
+    top: auto;
+    right: -6%;
+    bottom: 28px;
+    width: 44vw;
+    transform: none;
+    opacity: 0.2;
   }
 
   .hero-content {

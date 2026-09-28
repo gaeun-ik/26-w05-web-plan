@@ -14,9 +14,21 @@ menuToggle.addEventListener("click", () => {
 });
 
 navigation.addEventListener("click", (event) => {
-  if (event.target.closest("a")) {
-    setMenuOpen(false);
+  const link = event.target.closest("a[href^='#']");
+  if (!link) return;
+
+  const target = document.getElementById(link.hash.slice(1));
+  if (!target) return;
+
+  event.preventDefault();
+  setMenuOpen(false);
+
+  if (window.location.hash !== link.hash) {
+    window.history.pushState(null, "", link.hash);
   }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
 });
 
 document.addEventListener("keydown", (event) => {
